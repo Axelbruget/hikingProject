@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ul class="hikings">
+    <li *ngFor="let hiking of hikings$ | async"
+      [class.selected]="hiking.id === selectedId">
+      <a [routerLink]="['/hiking', hiking.id]">
+        <span class="badge">{{ hiking.id }}</span>{{ hiking.name }}
+      </a>
+    </li>
+  </ul>
+</ion-content>
