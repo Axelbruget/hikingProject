@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>hiking-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>Hikings</h2>
+  <div *ngIf="hiking$ | async as hiking">
+    <h3>"{{ hiking.name }}"</h3>
+    <div>
+      <label>Id: </label>{{ hiking.id }}</div>
+    <div>
+      <label>Name: </label>
+      <input [(ngModel)]="hiking.name" placeholder="name"/>
+    </div>
+    <p>
+      <button (click)="backToList()">Back</button>
+    </p>
+  </div>
+</ion-content>
