@@ -1,14 +1,8 @@
 import { Hiking } from './hiking';
 
 export const HIKINGS: Hiking[] = [
-  { id: 1, name: '1ère Rando' },
-  { id: 2, name: '1ère Rando' },
-  { id: 3, name: '1ère Rando' },
-  { id: 4, name: '1ère Rando' },
-  { id: 5, name: '1ère Rando' },
-  { id: 6, name: '1ère Rando' },
-  { id: 7, name: '1ère Rando' },
-  { id: 8, name: '1ère Rando' },
-  { id: 9, name: '1ère Rando' },
-  { id: 10, name: '1ère Rando' }
+  { id: 1, name: 'Rando 1', description: '', distance: 10},
+  { id: 2, name: 'Rando 2', description: '', distance: 12},
+  { id: 3, name: 'Rando 3', description: 'Trop longue cette rando', distance: 18},
+  { id: 4, name: 'Rando 4', description: '', distance: 5},
 ];

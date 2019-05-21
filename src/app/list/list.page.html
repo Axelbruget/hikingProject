@@ -5,12 +5,17 @@
 </ion-header>
 
 <ion-content>
-  <ul class="hikings">
-    <li *ngFor="let hiking of hikings$ | async"
-      [class.selected]="hiking.id === selectedId">
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Liste des randonnées</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let hiking of hikings$ | async"
+    [class.selected]="hiking.id === selectedId">
       <a [routerLink]="['/hiking', hiking.id]">
-        <span class="badge">{{ hiking.id }} - </span>{{ hiking.name }}
+        {{ hiking.name }}
       </a>
-    </li>
-  </ul>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
