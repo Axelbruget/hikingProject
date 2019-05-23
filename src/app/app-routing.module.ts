@@ -6,6 +6,8 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'list', loadChildren: './list/list.module#ListPageModule' },
   { path: 'hiking/:id', loadChildren: './hiking-detail/hiking-detail.module#HikingDetailPageModule' },
+  { path: 'hiking-in-progress/:id', loadChildren: './hiking-in-progress/hiking-in-progress.module#HikingInProgressPageModule' },
+
 ];
 
 @NgModule({

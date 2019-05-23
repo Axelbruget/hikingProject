@@ -26,8 +26,4 @@ export class HikingDetailPage implements OnInit {
         this.service.getHiking(params.get('id')))
     );
   }
-  backToList() {
-    this.router.navigate(['/list']);
-  }
-
 }
