@@ -5,11 +5,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngIf="hiking$ | async as hiking">
     <ion-card-header>
       <ion-card-title>{{hiking.name}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+
     </ion-card-content>
   </ion-card>
 </ion-content>
