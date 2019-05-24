@@ -1,5 +1,7 @@
 {
   "name": "hikingProject",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
