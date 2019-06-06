@@ -15,7 +15,7 @@
         <!-- <ion-list-header>
           <ion-label>Liste des randonnées</ion-label>
         </ion-list-header> -->
-        <ion-item *ngFor="let hiking of hikings$ | async"
+        <ion-item *ngFor="let hiking of hikings"
         [class.selected]="hiking.id === selectedId">
           <a [routerLink]="['/hiking', hiking.id]">
             {{ hiking.name }}

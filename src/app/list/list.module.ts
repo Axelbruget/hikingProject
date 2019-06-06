@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ListPage } from './list.page';
+import { DataFetcherService } from '../data-fetcher.service';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  providers: [
+    DataFetcherService,
+  ],
   imports: [
     CommonModule,
     FormsModule,

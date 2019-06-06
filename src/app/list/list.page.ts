@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HikingService } from '../hiking.service';
 import { Hiking } from '../hiking';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { DataFetcherService } from '../data-fetcher.service';
 
 @Component({
   selector: 'app-list',
@@ -11,22 +13,27 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
-  hikings$: Observable<Hiking[]>;
-  selectedId: number;
+  public hikings = [];
   
   constructor(
     private service: HikingService,
-    private route: ActivatedRoute
+    private dataFetcherService : DataFetcherService,
+    private route: ActivatedRoute,
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
-    this.hikings$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        // (+) before `params.get()` turns the string into a number
-        this.selectedId = +params.get('id');
-        return this.service.getHikings();
-      })
-    );
+    // this.hikings$ = this.route.paramMap.pipe(
+    //   switchMap(params => {
+    //     // (+) before `params.get()` turns the string into a number
+    //     this.selectedId = +params.get('id');
+    //     return this.service.getHikings();
+    //   })
+    // ); 
+
+    this.dataFetcherService.getHikings().subscribe(data => this.hikings = data);
+  
   }
+  
 
 }
