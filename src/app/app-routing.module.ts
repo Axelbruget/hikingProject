@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: 'list', loadChildren: './list/list.module#ListPageModule' },
   { path: 'hiking/:id', loadChildren: './hiking-detail/hiking-detail.module#HikingDetailPageModule' },
   { path: 'hiking-in-progress/:id', loadChildren: './hiking-in-progress/hiking-in-progress.module#HikingInProgressPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+
 
 ];
 

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HikingService } from '../hiking.service';
-import { Hiking } from '../hiking';
+import { HikingService } from '../services/hiking.service';
+import { Hiking } from '../models/hiking';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { DataFetcherService } from '../data-fetcher.service';
+import { DataFetcherService } from '../services/data-fetcher.service';
 
 @Component({
   selector: 'app-list',

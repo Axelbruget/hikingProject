@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Hiking } from '../hiking';
+import { Hiking } from '../models/hiking';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { HikingService } from '../hiking.service';
+import { HikingService } from '../services/hiking.service';
 import { switchMap } from 'rxjs/operators';
 
 @Component({

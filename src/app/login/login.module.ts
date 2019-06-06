@@ -5,26 +5,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ListPage } from './list.page';
-import { DataFetcherService } from '../services/data-fetcher.service';
+import { LoginPage } from './login.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ListPage
+    component: LoginPage
   }
 ];
 
 @NgModule({
-  providers: [
-    DataFetcherService,
-  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ListPage]
+  declarations: [LoginPage]
 })
-export class ListPageModule {}
+export class LoginPageModule {}

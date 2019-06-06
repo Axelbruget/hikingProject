@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Hiking } from './hiking';
+import { Hiking } from '../models/hiking';
 import { Observable, of } from 'rxjs';
-import { HIKINGS } from './mock-hikings';
+import { HIKINGS } from '../mock-hikings';
 import { map } from 'rxjs/operators';
 
 @Injectable({

@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import { Hiking } from '../hiking';
-import { HikingService } from '../hiking.service';
+import { Hiking } from '../models/hiking';
+import { HikingService } from '../services/hiking.service';
 
 @Component({
   selector: 'app-hiking-detail',

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HikingService } from './hiking.service';
+import { HikingService } from '../services/hiking.service';
 
 describe('HikingService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

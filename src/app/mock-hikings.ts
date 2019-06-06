@@ -1,4 +1,4 @@
-import { Hiking } from './hiking';
+import { Hiking } from './models/hiking';
 
 export const HIKINGS: Hiking[] = [
   { id: 1, name: 'Rando 1', description: '', distance: 10},
