@@ -4,6 +4,8 @@ import { Hiking } from '../models/hiking';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { HikingService } from '../services/hiking.service';
 import { switchMap } from 'rxjs/operators';
+import { LoginService } from '../services/login.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-hiking-in-progress',
@@ -11,15 +13,23 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./hiking-in-progress.page.scss'],
 })
 export class HikingInProgressPage implements OnInit {
-    hiking$: Observable<Hiking>;
+    private hiking$: Observable<Hiking>;
+    private currentUser: User;
   
     constructor(
       private route: ActivatedRoute,
       private router: Router,
+      private loginService : LoginService,
       private service: HikingService
     ) {}
 
   ngOnInit() {
+    this.loginService.checkCurrentUser().subscribe((user : User) => this.currentUser = user);
+
+    if (!this.currentUser){
+      this.router.navigate(["/login"]);
+    }
+    
     this.hiking$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getHiking(params.get('id')))

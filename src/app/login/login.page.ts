@@ -21,6 +21,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    localStorage.removeItem("hiking_currentuser");
     this.loginService.getUsers().subscribe(data => this.users = data);
   }
 
@@ -30,7 +31,7 @@ export class LoginPage implements OnInit {
     this.currentUser = this.users.find((user: User) => user.email === this.email && user.password === this.password)
 
     if (this.currentUser){
-      localStorage.setItem("hiking_user", JSON.stringify(this.currentUser));
+      localStorage.setItem("hiking_currentuser", JSON.stringify(this.currentUser));
       this.router.navigate(["/list"]);
     }else{
       this.error = "L'email ou le mot de passe est incorrect";

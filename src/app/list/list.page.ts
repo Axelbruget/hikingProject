@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HikingService } from '../services/hiking.service';
-import { Hiking } from '../models/hiking';
-import { Observable } from 'rxjs';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 import { DataFetcherService } from '../services/data-fetcher.service';
+import { LoginService } from '../services/login.service';
+import { Hiking } from '../models/hiking';
+import { User } from '../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -13,24 +11,21 @@ import { DataFetcherService } from '../services/data-fetcher.service';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
-  public hikings = [];
+  private hikings : Hiking[];
+  private currentUser: User;
   
   constructor(
-    private service: HikingService,
     private dataFetcherService : DataFetcherService,
-    private route: ActivatedRoute,
-    private http: HttpClient
+    private loginService : LoginService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
-    // this.hikings$ = this.route.paramMap.pipe(
-    //   switchMap(params => {
-    //     // (+) before `params.get()` turns the string into a number
-    //     this.selectedId = +params.get('id');
-    //     return this.service.getHikings();
-    //   })
-    // ); 
+    this.loginService.checkCurrentUser().subscribe((user : User) => this.currentUser = user);
 
+    if (!this.currentUser){
+      this.router.navigate(["/login"]);
+    }
     this.dataFetcherService.getHikings().subscribe(data => this.hikings = data);
   
   }

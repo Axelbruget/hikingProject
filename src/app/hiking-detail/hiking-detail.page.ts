@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { LoginService } from '../services/login.service';
 import { Hiking } from '../models/hiking';
 import { HikingService } from '../services/hiking.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-hiking-detail',
@@ -12,15 +13,23 @@ import { HikingService } from '../services/hiking.service';
   styleUrls: ['./hiking-detail.page.scss'],
 })
 export class HikingDetailPage implements OnInit {
-  hiking$: Observable<Hiking>;
+  private hiking$: Observable<Hiking>;
+  private currentUser: User;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private loginService : LoginService,
     private service: HikingService
   ) {}
 
   ngOnInit() {
+    this.loginService.checkCurrentUser().subscribe((user : User) => this.currentUser = user);
+
+    if (!this.currentUser){
+      this.router.navigate(["/login"]);
+    }
+
     this.hiking$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getHiking(params.get('id')))
