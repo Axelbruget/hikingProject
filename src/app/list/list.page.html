@@ -13,10 +13,33 @@
         <ion-card-subtitle>{{hiking.location}}</ion-card-subtitle> 
     </ion-card-header>
     <ion-card-content>
-      {{hiking.description}}
-      {{hiking.heightdiff}}
-      {{hiking.duration}}
-      {{hiking.notation}}
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+              {{hiking.description}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+              ~ {{hiking.duration}}
+          </ion-col>
+          <ion-col>
+              ~ {{hiking.heightdiff}}m
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+              <!-- <ionic3-star-rating 
+              activeIcon = "ios-star"
+              defaultIcon = "ios-star-outline"
+              activeColor = "#488aff" 
+              defaultColor = "#f4f4f4"
+              readonly="false"
+              [rating]="3">
+            </ionic3-star-rating> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 </ion-content>
