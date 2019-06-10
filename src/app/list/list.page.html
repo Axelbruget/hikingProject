@@ -9,7 +9,7 @@
 
   <ion-card *ngFor="let hiking of hikings" [class.selected]="hiking.id === selectedId">
     <ion-card-header>
-        <ion-card-title>{{hiking.name}}</ion-card-title>
+      <a [routerLink]="['/hiking', hiking.id]"><ion-card-title>{{hiking.name}}</ion-card-title></a>
         <ion-card-subtitle>{{hiking.location}}</ion-card-subtitle> 
     </ion-card-header>
     <ion-card-content>

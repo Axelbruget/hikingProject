@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Hiking } from '../models/hiking';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { HikingService } from '../services/hiking.service';
 import { switchMap } from 'rxjs/operators';
 import { LoginService } from '../services/login.service';
 import { User } from '../models/user';
+import { DataFetcherService } from '../services/data-fetcher.service';
 
 @Component({
   selector: 'app-hiking-in-progress',
@@ -20,7 +20,7 @@ export class HikingInProgressPage implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private loginService : LoginService,
-      private service: HikingService
+      private dataFetcherService : DataFetcherService
     ) {}
 
   ngOnInit() {
@@ -32,7 +32,7 @@ export class HikingInProgressPage implements OnInit {
     
     this.hiking$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.service.getHiking(params.get('id')))
+        this.dataFetcherService.getHiking(params.get('id')))
     );
   }
 

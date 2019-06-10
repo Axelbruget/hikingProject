@@ -4,8 +4,8 @@ import { switchMap } from 'rxjs/operators';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { Hiking } from '../models/hiking';
-import { HikingService } from '../services/hiking.service';
 import { User } from '../models/user';
+import { DataFetcherService } from '../services/data-fetcher.service';
 
 @Component({
   selector: 'app-hiking-detail',
@@ -20,7 +20,7 @@ export class HikingDetailPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private loginService : LoginService,
-    private service: HikingService
+    private dataFetcherService : DataFetcherService
   ) {}
 
   ngOnInit() {
@@ -32,7 +32,7 @@ export class HikingDetailPage implements OnInit {
 
     this.hiking$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.service.getHiking(params.get('id')))
+        this.dataFetcherService.getHiking(params.get('id')))
     );
   }
 }
