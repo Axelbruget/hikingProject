@@ -11,19 +11,10 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-label position="stacked">Nom</ion-label>
-        <ion-textarea [(ngModel)]="hiking.name" placeholder="nom"></ion-textarea>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Description</ion-label>
         <ion-textarea [(ngModel)]="hiking.description" placeholder="description"></ion-textarea>
       </ion-item>
       <ion-item>
-        <!-- <ion-label position="stacked">Distance</ion-label> -->
-        <ion-range min="0" max="30" [(ngModel)]="hiking.distance" step="1" pin="true" snaps="true" color="secondary">
-          <ion-label slot="start">0</ion-label>
-          <ion-label slot="end">30</ion-label>
-        </ion-range>
+        
       </ion-item>
       <ion-button color="primary" size="small" [routerLink]="['/list']">Retour</ion-button>
       <ion-button color="primary" size="small" [routerLink]="['/hiking-in-progress', hiking.id]">En cours</ion-button>
