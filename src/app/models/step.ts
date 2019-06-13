@@ -4,4 +4,5 @@ export class Step {
     yposition: number;
     name: String;
     description: String;
+    hikingId : number;
 }

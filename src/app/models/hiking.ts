@@ -5,6 +5,5 @@ export class Hiking {
     name: string;
     description: string;
     distance: number;
-    steps: Step[];
   }
   

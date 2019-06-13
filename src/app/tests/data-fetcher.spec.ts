@@ -9,7 +9,7 @@ describe('DataFetcherService', () => {
         TestBed.configureTestingModule({ providers: [DataFetcherService] });
     });
 
-    it('récupération des données depuis data.json', () => {
+    it('récupération des données depuis hiking.json', () => {
         service = TestBed.get(DataFetcherService);
         expect(service.getHikings()).toBeDefined();
     });

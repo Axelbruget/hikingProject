@@ -5,8 +5,6 @@
       </ion-toolbar>
     </ion-header>
 
-
-
   <ion-card *ngFor="let hiking of hikings" [class.selected]="hiking.id === selectedId">
     <ion-card-header>
       <a [routerLink]="['/hiking', hiking.id]"><ion-card-title>{{hiking.name}}</ion-card-title></a>
@@ -21,22 +19,10 @@
         </ion-row>
         <ion-row>
           <ion-col>
-              ~ {{hiking.duration}}
+              ~ {{hiking.duration}} minutes
           </ion-col>
           <ion-col>
-              ~ {{hiking.heightdiff}}m
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-              <!-- <ionic3-star-rating 
-              activeIcon = "ios-star"
-              defaultIcon = "ios-star-outline"
-              activeColor = "#488aff" 
-              defaultColor = "#f4f4f4"
-              readonly="false"
-              [rating]="3">
-            </ionic3-star-rating> -->
+              ~ {{hiking.heightdiff}} m
           </ion-col>
         </ion-row>
       </ion-grid>

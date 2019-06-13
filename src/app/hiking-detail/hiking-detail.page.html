@@ -1,23 +1,51 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>hiking-detail</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-card *ngIf="hiking$ | async as hiking">
-    <ion-card-header>
-        <ion-card-title>{{hiking.name}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-textarea [(ngModel)]="hiking.description" placeholder="description"></ion-textarea>
-      </ion-item>
-      <ion-item>
-        
-      </ion-item>
-      <ion-button color="primary" size="small" [routerLink]="['/list']">Retour</ion-button>
-      <ion-button color="primary" size="small" [routerLink]="['/hiking-in-progress', hiking.id]">En cours</ion-button>
-    </ion-card-content>
-  </ion-card>
+    <ion-card *ngIf="hiking$ | async as hiking">
+      <ion-card-header text-center>
+          <ion-card-title>{{hiking.name}}</ion-card-title>
+          <ion-card-subtitle>{{hiking.location}}</ion-card-subtitle> 
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                {{hiking.description}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                ~ {{hiking.duration}} minutes
+            </ion-col>
+            <ion-col>
+                ~ {{hiking.heightdiff}} m
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col text-center>
+              <!-- <ion-button color="primary" size="small" [routerLink]="['/list']">Retour</ion-button> -->
+              <ion-button color="primary" size="small" [routerLink]="['/hiking-in-progress', hiking.id]">Commencer</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div id="mapid"></div>
+        <ion-list *ngIf="steps$ | async">
+          <ion-list-header>
+            Steps
+          </ion-list-header>
+          <ion-item *ngFor="let step of steps$ | async">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-title>{{step.name}}</ion-title>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  {{step.description}}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
 </ion-content>
