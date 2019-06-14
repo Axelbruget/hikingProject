@@ -47,11 +47,14 @@ export class HikingDetailPage implements OnInit {
 
   initMap(){
     const mymap = L.map('mapid').setView([45.77, 3.08], 13);
+
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(mymap);
 
-    // for (let step in this.hiking$.steps)
+    // this.steps$.forEach(function(step){
+    //   var marker = L.marker([step.xposition, step.yposition]).addTo(mymap)
+    // });
   }
 }
 
