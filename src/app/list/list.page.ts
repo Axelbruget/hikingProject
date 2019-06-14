@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ListPage implements OnInit {
   private hikings : Hiking[];
+  private currentHiking : Hiking;
   private currentUser: User;
   
   constructor(
@@ -22,11 +23,14 @@ export class ListPage implements OnInit {
 
   ngOnInit() {
     this.loginService.checkCurrentUser().subscribe((user : User) => this.currentUser = user);
-
     if (!this.currentUser){
       this.router.navigate(["/login"]);
     }
     this.dataFetcherService.getHikings().subscribe(data => this.hikings = data);
+
+    if (localStorage.getItem("hiking_currenthiking")){
+      this.currentHiking = JSON.parse(localStorage.getItem("hiking_currenthiking"));
+    }
   
   }
   

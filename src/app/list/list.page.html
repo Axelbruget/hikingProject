@@ -1,4 +1,7 @@
 <ion-content>
+  <ion-item text-center>
+    <ion-title>Mes Randonnées</ion-title>
+  </ion-item>
   <ion-card *ngFor="let hiking of hikings" [class.selected]="hiking.id === selectedId">
     <ion-card-header>
       <a [routerLink]="['/hiking', hiking.id]"><ion-card-title>{{hiking.name}}</ion-card-title></a>
@@ -13,13 +16,25 @@
         </ion-row>
         <ion-row>
           <ion-col>
-              ~ {{hiking.duration}} minutes
+            ~ {{hiking.duration}}
           </ion-col>
           <ion-col>
-              ~ {{hiking.heightdiff}} m
+            ~ {{hiking.heightdiff}}m
+          </ion-col>
+          <ion-col>
+            <ng-container *ngFor="let i of [].constructor(hiking.notation)">
+              <ion-icon ios="ios-star" md="md-star"></ion-icon>
+            </ng-container>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-content>
   </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <ion-button color="primary" size="small" *ngIf="currentHiking" [routerLink]="['/hiking-in-progress', currentHiking.id]">Voir la rando en cours</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

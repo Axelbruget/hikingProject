@@ -1,16 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>hiking-in-progress</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-card *ngIf="hiking$ | async as hiking">
-    <ion-card-header>
-      <ion-card-title>{{hiking.name}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+    <ion-card *ngIf="hiking">
+      <ion-card-header text-center>
+          <ion-card-title>{{hiking.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div id="mapid"></div>
+        <ion-list *ngIf="hiking.steps">
+          <ion-list-header text-center>
+              <ion-title>Etapes</ion-title>
+          </ion-list-header>
+            <ion-item *ngFor="let step of hiking.steps">
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-title>{{step.name}}</ion-title>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-text>{{step.description}}</ion-text>
+                  </ion-col>
+                </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <ion-button color="danger" size="medium" (click)="stopHiking()">Terminer</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>

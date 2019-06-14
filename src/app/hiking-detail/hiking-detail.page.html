@@ -3,7 +3,9 @@
       <ion-card-header text-center>
           <ion-card-title>{{hiking.name}}</ion-card-title>
           <ion-card-subtitle>
-            <ion-icon ios="ios-star" md="md-star"></ion-icon>
+            <ng-container *ngFor="let i of [].constructor(hiking.notation)">
+              <ion-icon ios="ios-star" md="md-star"></ion-icon>
+            </ng-container>
           </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
@@ -18,23 +20,23 @@
                 <ion-icon ios="ios-pin" md="md-pin"></ion-icon><ion-label> {{hiking.location}}</ion-label>
             </ion-col>
             <ion-col>
-                <ion-icon ios="ios-clock" md="md-clock"></ion-icon><ion-label> ~{{hiking.duration}}</ion-label>
+                <ion-icon ios="ios-clock" md="md-clock"></ion-icon><ion-label> ~ {{hiking.duration}}</ion-label>
             </ion-col>
             <ion-col>
-                <ion-icon ios="ios-trending-up" md="md-trending-up"></ion-icon><ion-label> ~{{hiking.heightdiff}}m</ion-label>
+                <ion-icon ios="ios-trending-up" md="md-trending-up"></ion-icon><ion-label> ~ {{hiking.heightdiff}}m</ion-label>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col text-center>
-              <!-- <ion-button color="primary" size="small" [routerLink]="['/list']">Retour</ion-button> -->
-              <ion-button color="primary" size="small" [routerLink]="['/hiking-in-progress', hiking.id]">Commencer</ion-button>
+              <ion-button color="primary" size="small" *ngIf="currentHiking" [routerLink]="['/hiking-in-progress', currentHiking.id]">Voir la rando en cours</ion-button>
+              <ion-button color="primary" size="small" (click)="startHiking(hiking)" [routerLink]="['/hiking-in-progress', hiking.id]">Commencer</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
         <div id="mapid"></div>
         <ion-list *ngIf="hiking.steps">
-          <ion-list-header>
-            Steps
+          <ion-list-header text-center>
+              <ion-title>Etapes</ion-title>
           </ion-list-header>
           <ion-item *ngFor="let step of hiking.steps">
             <ion-grid>

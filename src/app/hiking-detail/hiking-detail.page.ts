@@ -14,6 +14,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 })
 export class HikingDetailPage implements OnInit {
   private hiking: Hiking;
+  private currentHiking: Hiking;
   private currentUser: User;
   private currentLatitude: Number;
   private currentLongitude: Number;
@@ -28,9 +29,12 @@ export class HikingDetailPage implements OnInit {
 
   ngOnInit() {
     this.loginService.checkCurrentUser().subscribe((user : User) => this.currentUser = user);
-    
     if (!this.currentUser){
       this.router.navigate(["/login"]);
+    }
+    
+    if (localStorage.getItem("hiking_currenthiking")){
+      this.currentHiking = JSON.parse(localStorage.getItem("hiking_currenthiking"));
     }
     
     this.route.paramMap.pipe(
@@ -41,6 +45,15 @@ export class HikingDetailPage implements OnInit {
     ).subscribe((hiking : Hiking) => this.hiking = hiking);
     
     setTimeout(() => {this.initMap()}, 1000);
+  }
+
+  startHiking(hiking : Hiking){
+    this.stopHiking();
+    localStorage.setItem("hiking_currenthiking", JSON.stringify(hiking));
+  }
+
+  stopHiking(){
+    localStorage.removeItem("hiking_currenthiking");
   }
 
   initMap(){

@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: 'list', loadChildren: './list/list.module#ListPageModule' },
   { path: 'hiking/:id', loadChildren: './hiking-detail/hiking-detail.module#HikingDetailPageModule' },
   { path: 'hiking-in-progress/:id', loadChildren: './hiking-in-progress/hiking-in-progress.module#HikingInProgressPageModule' },
