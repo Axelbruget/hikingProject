@@ -1,5 +1,5 @@
 <ion-content>
-    <ion-card *ngIf="hiking$ | async as hiking">
+    <ion-card *ngIf="hiking">
       <ion-card-header text-center>
           <ion-card-title>{{hiking.name}}</ion-card-title>
           <ion-card-subtitle>{{hiking.location}}</ion-card-subtitle> 
@@ -27,11 +27,11 @@
           </ion-row>
         </ion-grid>
         <div id="mapid"></div>
-        <ion-list *ngIf="steps$ | async">
+        <ion-list *ngIf="hiking.steps">
           <ion-list-header>
             Steps
           </ion-list-header>
-          <ion-item *ngFor="let step of steps$ | async">
+          <ion-item *ngFor="let step of hiking.steps">
             <ion-grid>
               <ion-row>
                 <ion-col>

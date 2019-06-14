@@ -12,7 +12,7 @@ export class LoginService {
     private url : string = 'assets/data/user.json';
     private currentUser : User;
 
-    public getUsers(): Observable<any[]>{
+    public getUsers(): Observable<User[]>{
         return this.http.get<any[]>(this.url);   
     }
 

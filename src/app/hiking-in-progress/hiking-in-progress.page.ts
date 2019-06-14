@@ -30,10 +30,10 @@ export class HikingInProgressPage implements OnInit {
       this.router.navigate(["/login"]);
     }
     
-    this.hiking$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.dataFetcherService.getHiking(params.get('id')))
-    );
+    // this.hiking$ = this.route.paramMap.pipe(
+    //   switchMap((params: ParamMap) =>
+    //     this.dataFetcherService.getHiking(params.get('id')))
+    // );
   }
 
 }
