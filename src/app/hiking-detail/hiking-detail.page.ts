@@ -5,6 +5,7 @@ import { LoginService } from '../services/login.service';
 import { Hiking } from '../models/hiking';
 import { User } from '../models/user';
 import { DataFetcherService } from '../services/data-fetcher.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-hiking-detail',
@@ -14,12 +15,15 @@ import { DataFetcherService } from '../services/data-fetcher.service';
 export class HikingDetailPage implements OnInit {
   private hiking: Hiking;
   private currentUser: User;
+  private currentLatitude: Number;
+  private currentLongitude: Number;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private loginService : LoginService,
-    private dataFetcherService : DataFetcherService
+    private dataFetcherService : DataFetcherService,
+    private geolocation: Geolocation
   ) {}
 
   ngOnInit() {
@@ -47,13 +51,34 @@ export class HikingDetailPage implements OnInit {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(mymap);
 
-    const steps = this.hiking.steps.map(step => [step.xposition, step.yposition])
+    const steps = this.hiking.steps.map(step => [step.latitude, step.longitude])
 
     // @ts-ignore
     L.Routing.control({
       waypoints: steps,
       show: false
     }).addTo(mymap);
+
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // @ts-ignore
+      
+      var circle = L.circle([resp.coords.latitude, resp.coords.longitude], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 150
+        }).addTo(mymap);
+        //console.log(resp.coords.latitude);
+      }).catch((error) => {
+        console.log('La récupération de la position a échouée', error);
+      });
+     
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((data) => {
+    // data can be a set of coordinates, or an error (if an error occurred).
+    // data.coords.latitude
+    // data.coords.longitude
+    });
   }
 }
 

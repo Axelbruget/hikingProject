@@ -5,27 +5,27 @@
     "description": "Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.",
     "notation": 3,
     "heightdiff": 850,
-    "duration": 120,
+    "duration": "2:00:00",
     "steps": [{
         "id": 1,
         "name": "Proinde concepta",
         "description": "Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.",
-        "xposition": 45.87,
-        "yposition": 3.08
+        "latitude": 45.75,
+        "longitude": 3.138
     },
     {
         "id": 2,
         "name": "Proinde concepta",
         "description": "Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.",
-        "xposition": 45.89,
-        "yposition": 3.28
+        "latitude": 45.72,
+        "longitude": 3.118
     },
     {
         "id": 3,
         "name": "Proinde concepta",
         "description": "Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.",
-        "xposition": 45.87,
-        "yposition": 3.18
+        "latitude": 45.74,
+        "longitude": 3.129
     }]
 },
 {
@@ -35,27 +35,27 @@
     "description": "Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.",
     "notation": 4,
     "heightdiff": 1850,
-    "duration": 250,
+    "duration": "2:30:00",
     "steps": [{
         "id": 4,
         "name": "Proinde concepta",
         "description": "Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.",
-        "xposition": 45.87,
-        "yposition": 3.08
+        "latitude": 45.87,
+        "longitude": 3.08
     },
     {
         "id": 5,
         "name": "Proinde concepta",
         "description": "Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.",
-        "xposition": 45.89,
-        "yposition": 3.28
+        "latitude": 45.89,
+        "longitude": 3.28
     },
     {
         "id": 6,
         "name": "Proinde concepta",
         "description": "Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.",
-        "xposition": 45.87,
-        "yposition": 3.18
+        "latitude": 45.87,
+        "longitude": 3.18
     }]
 },
 {
@@ -65,12 +65,12 @@
     "description": "Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.",
     "notation": 2,
     "heightdiff": 400,
-    "duration": 90,
+    "duration": "1:30:00",
     "steps": [{
         "id": 7,
         "name": "Proinde concepta",
         "description": "Metuentes igitur idem latrones Lycaoniam magna parte campestrem cum se inpares nostris fore congressione stataria documentis frequentibus scirent, tramitibus deviis petivere Pamphyliam diu quidem intactam sed timore populationum et caedium, milite per omnia diffuso propinqua, magnis undique praesidiis conmunitam.",
-        "xposition": 45.87,
-        "yposition": 3.08
+        "latitude": 45.87,
+        "longitude": 3.08
     }]
 }]

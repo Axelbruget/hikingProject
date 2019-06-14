@@ -2,7 +2,9 @@
     <ion-card *ngIf="hiking">
       <ion-card-header text-center>
           <ion-card-title>{{hiking.name}}</ion-card-title>
-          <ion-card-subtitle>{{hiking.location}}</ion-card-subtitle> 
+          <ion-card-subtitle>
+            <ion-icon ios="ios-star" md="md-star"></ion-icon>
+          </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
@@ -13,10 +15,13 @@
           </ion-row>
           <ion-row>
             <ion-col>
-                ~ {{hiking.duration}} minutes
+                <ion-icon ios="ios-pin" md="md-pin"></ion-icon><ion-label> {{hiking.location}}</ion-label>
             </ion-col>
             <ion-col>
-                ~ {{hiking.heightdiff}} m
+                <ion-icon ios="ios-clock" md="md-clock"></ion-icon><ion-label> ~{{hiking.duration}}</ion-label>
+            </ion-col>
+            <ion-col>
+                <ion-icon ios="ios-trending-up" md="md-trending-up"></ion-icon><ion-label> ~{{hiking.heightdiff}}m</ion-label>
             </ion-col>
           </ion-row>
           <ion-row>

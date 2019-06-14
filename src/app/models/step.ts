@@ -1,7 +1,7 @@
 export class Step {
     id: number;
-    xposition: number;
-    yposition: number;
+    latitude: number;
+    longitude: number;
     name: String;
     description: String
 }
