@@ -51,11 +51,13 @@ export class HikingInProgressPage implements OnInit {
 
   initMap(){
     // @ts-ignore
-    const mymap = L.map('mapid').setView([45.77, 3.08], 13);
+    const mymap = L.map('progressmap').setView([45.77, 3.08], 13);
     // @ts-ignore
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(mymap);
+    var osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+      maxZoom: 19
+    });
+    mymap.addLayer(osmLayer);
 
     const steps = this.hiking.steps.map(step => [step.latitude, step.longitude])
 
