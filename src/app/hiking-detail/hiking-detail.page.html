@@ -33,7 +33,7 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-        <div id="detailmap"></div>
+        <app-leaflet-map [page]="'detail'" [hiking]="hiking"></app-leaflet-map>
         <ion-list *ngIf="hiking.steps">
           <ion-list-header text-center>
               <ion-title>Etapes</ion-title>

@@ -4,7 +4,7 @@
           <ion-card-title>{{hiking.name}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <div id="progressmap"></div>
+        <app-leaflet-map [page]="'progress'" [hiking]="hiking"></app-leaflet-map>
         <ion-list *ngIf="hiking.steps">
           <ion-list-header text-center>
               <ion-title>Etapes</ion-title>
@@ -29,6 +29,7 @@
     <ion-grid>
       <ion-row>
         <ion-col text-center>
+          <ion-button color="primary" size="medium" [routerLink]="['/list']">Retour à la liste</ion-button>
           <ion-button color="danger" size="medium" (click)="stopHiking()">Terminer</ion-button>
         </ion-col>
       </ion-row>
