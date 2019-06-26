@@ -3,21 +3,24 @@
     <ion-grid>
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div class="title" text-center>
+            <ion-title>A fond la rando</ion-title>
+          </div>
           <div text-center>
             <ion-img src="../../assets/image/logo.jpg"></ion-img>
           </div>
           <div padding>
             <ion-item>
               <ion-label position="fixed">Email</ion-label>
-              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+              <ion-input class="input-email" name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="fixed">Password</ion-label>
-              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+              <ion-label position="fixed">Mot de passe</ion-label>
+              <ion-input class="input-password" name="password" type="password" placeholder="Password" ngModel required></ion-input>
             </ion-item>
           </div>
-          <div padding>
-            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
+          <div text-center>
+            <ion-button class="login-button" size="medium" type="submit" [disabled]="form.invalid">Me connecter</ion-button>
           </div>
           <span padding *ngIf="error">{{error}}</span>
         </ion-col>
