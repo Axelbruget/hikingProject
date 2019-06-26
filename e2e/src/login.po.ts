@@ -2,7 +2,7 @@ import { browser, by, element } from 'protractor';
 
 export class AppLoginPage {
   navigateTo() {
-    return browser.get('#/test');
+    return browser.get('/');
   }
   getEmailInput(){
     return element(by.css('.input-email'));
