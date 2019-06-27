@@ -15,33 +15,33 @@ import { DataFetcherService } from '../services/data-fetcher.service';
 export class HikingInProgressPage implements OnInit {
   private hiking: Hiking;
   private currentUser: User;
-  private currentLatitude: Number;
-  private currentLongitude: Number;
-  
+  private currentLatitude: number;
+  private currentLongitude: number;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private loginService : LoginService,
-    private dataFetcherService : DataFetcherService,
+    private loginService: LoginService,
+    private dataFetcherService: DataFetcherService,
   ) {}
 
   ngOnInit() {
-    this.loginService.checkCurrentUser().subscribe((user : User) => this.currentUser = user);
+    this.loginService.checkCurrentUser().subscribe((user: User) => this.currentUser = user);
 
-    if (!this.currentUser){
-      this.router.navigate(["/login"]);
+    if (!this.currentUser) {
+      this.router.navigate(['/login']);
     }
-    
+
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.dataFetcherService.getHiking(params.get('id'))
       ),
       flatMap(value => value)
-    ).subscribe((hiking : Hiking) => this.hiking = hiking);
+    ).subscribe((hiking: Hiking) => this.hiking = hiking);
   }
 
-  stopHiking(){
-    localStorage.removeItem("hiking_currenthiking");
-    this.router.navigate(["/list"]);
+  stopHiking() {
+    localStorage.removeItem('hiking_currenthiking');
+    this.router.navigate(['/list']);
   }
 }

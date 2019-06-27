@@ -10,15 +10,15 @@ import { Hiking } from '../models/hiking';
 export class DataFetcherService {
 
     constructor(private http: HttpClient) { }
-    private urlHikings : string = 'assets/data/hiking.json';
+    private urlHikings = 'assets/data/hiking.json';
 
-    public getHikings() : Observable<Hiking[]>{
+    public getHikings(): Observable<Hiking[]> {
         const hikings = this.http.get<Hiking[]>(this.urlHikings);
         return hikings;
     }
 
-    public getHiking(id: number | string){
-        const hiking = this.getHikings().pipe(map((hikings: Hiking[]) => hikings.find(hiking => hiking.id === +id)));
+    public getHiking(id: number | string) {
+        const hiking = this.getHikings().pipe(map((hikings: Hiking[]) => hikings.find(h => h.id === +id)));
         return of(hiking);
     }
 }

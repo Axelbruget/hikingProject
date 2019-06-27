@@ -1,4 +1,4 @@
-import { DataFetcherService } from "../services/data-fetcher.service";
+import { DataFetcherService } from '../services/data-fetcher.service';
 import { TestBed } from '@angular/core/testing';
 
 let service: DataFetcherService;

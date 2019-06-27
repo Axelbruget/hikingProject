@@ -4,8 +4,8 @@ export class AppListPage {
   navigateTo() {
     return browser.get('/list');
   }
-  
-  getFirstHiking(){
+
+  getFirstHiking() {
     return element(by.css('.hiking-link-1'));
   }
 }

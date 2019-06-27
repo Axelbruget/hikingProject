@@ -9,15 +9,15 @@ import { User } from '../models/user';
 export class LoginService {
 
     constructor(private http: HttpClient) { }
-    private url : string = 'assets/data/user.json';
-    private currentUser : User;
+    private url = 'assets/data/user.json';
+    private currentUser: User;
 
-    public getUsers(): Observable<User[]>{
-        return this.http.get<any[]>(this.url);   
+    public getUsers(): Observable<User[]> {
+        return this.http.get<any[]>(this.url);
     }
 
-    public checkCurrentUser(): Observable<User>{
-        this.currentUser = JSON.parse(localStorage.getItem("hiking_currentuser"));
+    public checkCurrentUser(): Observable<User> {
+        this.currentUser = JSON.parse(localStorage.getItem('hiking_currentuser'));
         return of(this.currentUser);
     }
 }

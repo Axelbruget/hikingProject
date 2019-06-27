@@ -4,16 +4,16 @@ export class AppLoginPage {
   navigateTo() {
     return browser.get('/login');
   }
-  getEmailInput(){
+  getEmailInput() {
     return element(by.css('.input-email > .native-input'));
   }
-  getPasswordInput(){
+  getPasswordInput() {
     return element(by.css('.input-password > .native-input'));
   }
-  getLoginButton(){
+  getLoginButton() {
     return element(by.css('.login-button'));
   }
-  getErrorMessage(){
+  getErrorMessage() {
     return element(by.css('.error-span'));
   }
 }
