@@ -22,7 +22,7 @@
           <div text-center>
             <ion-button class="login-button" size="medium" type="submit" [disabled]="form.invalid">Me connecter</ion-button>
           </div>
-          <span padding *ngIf="error">{{error}}</span>
+          <span class="error-span" padding *ngIf="error">{{error}}</span>
         </ion-col>
       </ion-row>
     </ion-grid>
