@@ -7,7 +7,12 @@ Pour se connecter :
 Email -> root 
 Password -> root
 
+Pour installer le projet : 
 
+- git clone https://github.com/Axelbruget/hikingProject.git
+- cd hikingProject
+- yarn install 
+- ionic serve
 
 Réalisé : 
 
@@ -29,6 +34,7 @@ ionic cordova prepare android
 ionic cordova run android
 
 Manquant : 
+Les fonctionnalités manquantes sont dues à un manque de temps plus qu'à une difficultée particulière (seul pour réaliser ce projet)
 
 Je n'ai pas eu le temps de gérer le déplacement de l'utilisateur en direct.
 La validation des étapes manque également.
