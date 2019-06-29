@@ -28,12 +28,13 @@
           </ion-row>
           <ion-row>
             <ion-col text-center>
-              <ion-button color="primary" size="small" *ngIf="currentHiking" [routerLink]="['/hiking-in-progress', currentHiking.id]">Voir la rando en cours</ion-button>
+              <!-- <ion-button color="primary" size="small" *ngIf="currentHiking" [routerLink]="['/hiking-in-progress', currentHiking.id]">Voir la rando en cours</ion-button> -->
               <ion-button color="primary" size="small" (click)="startHiking(hiking)" [routerLink]="['/hiking-in-progress', hiking.id]">Commencer</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
         <app-leaflet-map [page]="'detail'" [hiking]="hiking"></app-leaflet-map>
+        <app-timer></app-timer>
         <ion-list *ngIf="hiking.steps">
           <ion-list-header text-center>
               <ion-title>Etapes</ion-title>

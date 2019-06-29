@@ -30,11 +30,5 @@
       </ion-grid>
     </ion-card-content>
   </ion-card>
-  <ion-grid>
-    <ion-row>
-      <ion-col text-center>
-        <ion-button color="primary" size="small" *ngIf="currentHiking" [routerLink]="['/hiking-in-progress', currentHiking.id]">Voir la rando en cours</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <app-timer></app-timer>
 </ion-content>

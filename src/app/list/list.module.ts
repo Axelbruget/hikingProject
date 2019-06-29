@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ListPage } from './list.page';
 import { DataFetcherService } from '../services/data-fetcher.service';
+import { TimerModule } from '../timer/timer.module';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    TimerModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ListPage]

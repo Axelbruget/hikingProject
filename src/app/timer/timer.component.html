@@ -1,0 +1,21 @@
+<ion-footer *ngIf="isCurrentHiking()">
+  <ion-title text-center>Randonnée : {{ getCurrentHiking().name }} en cours</ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <ion-button color="danger" (click)='stopHiking()'>Terminer</ion-button>
+      </ion-col>
+      <ion-col text-center>
+        <div>
+          <ion-icon name="compass" style="margin:auto;"></ion-icon>
+        </div>
+        <div>
+          <ion-title class="print-timer"> {{ hours }}:{{ minutes }}:{{ seconds }}</ion-title>
+        </div>  
+      </ion-col>
+      <ion-col text-center>
+        <ion-button color="success" [routerLink]="['/hiking-in-progress', getCurrentHiking().id]">Voir la rando en cours</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

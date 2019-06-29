@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { HikingDetailPage } from './hiking-detail.page';
 import { LeafletMapModule } from '../leaflet-map/leaflet-map.module';
+import { TimerModule } from '../timer/timer.module';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     LeafletMapModule,
+    TimerModule,
     RouterModule.forChild(routes)
   ],
   declarations: [HikingDetailPage]

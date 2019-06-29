@@ -6,6 +6,7 @@ import { switchMap, flatMap, map } from 'rxjs/operators';
 import { LoginService } from '../services/login.service';
 import { User } from '../models/user';
 import { DataFetcherService } from '../services/data-fetcher.service';
+import { HikingManagerService } from '../services/hiking-manager.service';
 
 @Component({
   selector: 'app-hiking-in-progress',
@@ -23,6 +24,7 @@ export class HikingInProgressPage implements OnInit {
     private router: Router,
     private loginService: LoginService,
     private dataFetcherService: DataFetcherService,
+    private hikingManagerService: HikingManagerService
   ) {}
 
   ngOnInit() {
@@ -41,7 +43,7 @@ export class HikingInProgressPage implements OnInit {
   }
 
   stopHiking() {
-    localStorage.removeItem('hiking_currenthiking');
+    this.hikingManagerService.stopHiking();
     this.router.navigate(['/list']);
   }
 }

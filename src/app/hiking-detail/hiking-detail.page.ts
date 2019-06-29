@@ -5,6 +5,7 @@ import { LoginService } from '../services/login.service';
 import { Hiking } from '../models/hiking';
 import { User } from '../models/user';
 import { DataFetcherService } from '../services/data-fetcher.service';
+import { HikingManagerService } from '../services/hiking-manager.service';
 
 @Component({
   selector: 'app-hiking-detail',
@@ -23,6 +24,7 @@ export class HikingDetailPage implements OnInit {
     private router: Router,
     private loginService: LoginService,
     private dataFetcherService: DataFetcherService,
+    private hikingManagerService: HikingManagerService
   ) {}
 
   ngOnInit() {
@@ -44,12 +46,11 @@ export class HikingDetailPage implements OnInit {
   }
 
   startHiking(hiking: Hiking) {
-    this.stopHiking();
-    localStorage.setItem('hiking_currenthiking', JSON.stringify(hiking));
+    this.hikingManagerService.startHiking(hiking);
   }
 
   stopHiking() {
-    localStorage.removeItem('hiking_currenthiking');
+    this.hikingManagerService.stopHiking();
   }
 }
 
