@@ -7,20 +7,22 @@ let service: HikingManagerService;
 
 describe('HikingManagerService', () => {
 
-    beforeEach(() => TestBed.configureTestingModule({ 
+    beforeEach(() => TestBed.configureTestingModule({
             providers: [HikingManagerService],
             imports: [HttpClientTestingModule]
     }).compileComponents());
 
     it('startHiking() démarre bien une randonnée', () => {
         service = TestBed.get(HikingManagerService);
-        service.startHiking(new Hiking);
+        const hiking = new Hiking();
+        service.startHiking(hiking);
         expect(service.isCurrentHiking()).toBe(true);
     });
 
     it('stopHiking() arrête bien la randonnée en cours', () => {
         service = TestBed.get(HikingManagerService);
-        service.startHiking(new Hiking);
+        const hiking = new Hiking();
+        service.startHiking(hiking);
         service.stopHiking();
         expect(service.isCurrentHiking()).toBe(false);
     });

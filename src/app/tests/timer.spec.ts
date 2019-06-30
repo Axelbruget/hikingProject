@@ -6,7 +6,7 @@ let service: TimerService;
 
 describe('TimerService', () => {
 
-    beforeEach(() => TestBed.configureTestingModule({ 
+    beforeEach(() => TestBed.configureTestingModule({
             providers: [TimerService],
             imports: [HttpClientTestingModule]
     }).compileComponents());

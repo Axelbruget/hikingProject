@@ -13,9 +13,9 @@ export class TimerService {
     interval: any;
 
   constructor() {
-    if (localStorage.getItem('hiking_timer')){
+    if (localStorage.getItem('hiking_timer')) {
       this.counter = parseInt(localStorage.getItem('hiking_timer'), 10);
-    }else{
+    } else {
       this.resetCounter();
     }
     this.counter = localStorage.getItem('hiking_timer') ? parseInt(localStorage.getItem('hiking_timer'), 10) : 0;
@@ -23,26 +23,26 @@ export class TimerService {
     this.min = new BehaviorSubject(0);
     this.sec = new BehaviorSubject(0);
   }
-  
-  public startTimer(){
+
+  public startTimer() {
     if (!localStorage.getItem('hiking_timer')) {
       localStorage.setItem('hiking_timer', this.counter.toString());
       this.startInterval();
     }
   }
 
-  public stopTimer(){
+  public stopTimer() {
     clearInterval(this.interval);
     localStorage.removeItem('hiking_timer');
     this.resetCounter();
     this.resetTime();
   }
 
-  public resetCounter(){
+  public resetCounter() {
     this.counter = 0;
   }
 
-  public startInterval(){
+  public startInterval() {
     this.interval = setInterval(() => {
       this.counter++;
       this.h.next(Math.floor(this.counter / 3600));
@@ -51,13 +51,13 @@ export class TimerService {
     }, 1000);
   }
 
-  public resetTime(){
+  public resetTime() {
     this.h.next(0);
     this.min.next(0);
     this.sec.next(0);
   }
 
-  public getCounter(){
+  public getCounter() {
     return this.counter;
   }
 }

@@ -8,7 +8,7 @@ let service: DataFetcherService;
 
 describe('DataFetcherService', () => {
 
-    beforeEach(() => TestBed.configureTestingModule({ 
+    beforeEach(() => TestBed.configureTestingModule({
             providers: [DataFetcherService],
             imports: [HttpClientTestingModule]
     }).compileComponents());
