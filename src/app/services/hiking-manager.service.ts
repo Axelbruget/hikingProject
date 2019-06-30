@@ -13,7 +13,7 @@ export class HikingManagerService {
     startHiking(hiking: Hiking) {
         this.stopHiking();
         localStorage.setItem('hiking_currenthiking', JSON.stringify(hiking));
-        this.timerService.runTimer();
+        this.timerService.startTimer();
     }
 
     isCurrentHiking() {

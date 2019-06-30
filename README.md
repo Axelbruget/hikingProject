@@ -21,9 +21,9 @@ Le timer démarre lorsqu'on lance une randonnée, il s'arrête lorsqu'on stoppe 
 La map fonctionne et chaque étape est matérialisé par un point sur la carte. 
 La position de l'utilisateur est marquée par un rond rouge. 
 
-Intégration de tests unitaires pour .. yarn run test pour les lancer
-Intégration de tests fonctionnels dans /e2e : yarn run e2e pour les lancer
-Tous le projet a été passé au linter : yarn run lint pour le lancer
+Intégration de tests unitaires pour 3 de mes services ( /tests/..) : 'yarn run test' pour les lancer
+Intégration de 2 tests fonctionnels correspondants aux 2 premières spécifications fonctionnelles dans /e2e : 'yarn run e2e' pour les lancer
+Tous le projet a été passé au linter : 'yarn run lint' pour le lancer
 
 Application fonctionnelle sur Windows et Android ( testé sur mon Huawei P8 Lite )
 Pour lancer sur Android (En supposant que : JDk java 8, java 1.8, gradle et android studio installés) :

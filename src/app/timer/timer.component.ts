@@ -8,18 +8,18 @@ import { HikingManagerService } from '../services/hiking-manager.service';
   styleUrls: ['./timer.component.scss'],
 })
 export class TimerComponent implements OnInit {
-  hours: number;
-  minutes: number;
-  seconds: number;
+  h: number;
+  min: number;
+  sec: number;
 
   constructor(
     private timerService: TimerService,
     private hikingManagerService: HikingManagerService) { }
 
   ngOnInit() {
-    this.timerService.hours.subscribe(h => this.hours = h);
-    this.timerService.minutes.subscribe(m => this.minutes = m);
-    this.timerService.seconds.subscribe(s => this.seconds = s);
+    this.timerService.h.subscribe(h => this.h = h);
+    this.timerService.min.subscribe(m => this.min = m);
+    this.timerService.sec.subscribe(s => this.sec = s);
   }
 
   getCurrentHiking() {

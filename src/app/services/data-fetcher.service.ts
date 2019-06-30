@@ -16,8 +16,8 @@ export class DataFetcherService {
         const hikings = this.http.get<Hiking[]>(this.urlHikings);
         return hikings;
     }
-
-    public getHiking(id: number | string) {
+    // probablement une erreur sur la récupération d'une randonnée, la valeur de retour ne devrait pas être de type Observable<Observable<Hiking>>
+    public getHiking(id: number | string) : Observable<Observable<Hiking>>{
         const hiking = this.getHikings().pipe(map((hikings: Hiking[]) => hikings.find(h => h.id === +id)));
         return of(hiking);
     }

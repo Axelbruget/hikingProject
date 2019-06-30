@@ -41,15 +41,16 @@ export class LeafletMapComponent implements OnInit {
     this.geolocation.getCurrentPosition().then((resp) => {
       // @ts-ignore
 
-      const circle = L.circle([resp.coords.latitude, resp.coords.longitude], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 150
-        }).addTo(mymap);
-          // console.log(resp.coords.latitude);
-      }).catch((error) => {
-        console.log('La récupération de la position a échouée', error);
-      });
+    // permet de récupérer la position de l'utilisateur au moment ou la map s'affiche, je n'ai pas réussi à récupérer la position en direct et faire bouger le marqueur
+    const circle = L.circle([resp.coords.latitude, resp.coords.longitude], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 150
+      }).addTo(mymap);
+        // console.log(resp.coords.latitude);
+    }).catch((error) => {
+      console.log('La récupération de la position a échouée', error);
+    });
   }
 }

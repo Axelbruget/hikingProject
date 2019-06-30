@@ -5,41 +5,59 @@ import { BehaviorSubject } from 'rxjs';
     providedIn: 'root'
 })
 export class TimerService {
-    hours: BehaviorSubject<number>;
-    minutes: BehaviorSubject<number>;
-    seconds: BehaviorSubject<number>;
+    h: BehaviorSubject<number>;
+    min: BehaviorSubject<number>;
+    sec: BehaviorSubject<number>;
 
     counter: number;
     interval: any;
 
   constructor() {
+    if (localStorage.getItem('hiking_timer')){
+      this.counter = parseInt(localStorage.getItem('hiking_timer'), 10);
+    }else{
+      this.resetCounter();
+    }
     this.counter = localStorage.getItem('hiking_timer') ? parseInt(localStorage.getItem('hiking_timer'), 10) : 0;
-    this.hours = new BehaviorSubject(0);
-    this.minutes = new BehaviorSubject(0);
-    this.seconds = new BehaviorSubject(0);
+    this.h = new BehaviorSubject(0);
+    this.min = new BehaviorSubject(0);
+    this.sec = new BehaviorSubject(0);
   }
-
-  public runTimer(): void {
+  
+  public startTimer(){
     if (!localStorage.getItem('hiking_timer')) {
       localStorage.setItem('hiking_timer', this.counter.toString());
-      this.interval = setInterval(() => {
-            this.counter++;
-            this.seconds.next(this.counter % 60);
-            this.minutes.next(Math.floor(this.counter / 60));
-            this.hours.next(Math.floor(this.counter / 3600));
-        }, 1000);
+      this.startInterval();
     }
   }
 
-  public stopTimer(): void {
+  public stopTimer(){
     clearInterval(this.interval);
     localStorage.removeItem('hiking_timer');
-    this.counter = 0;
-    this.seconds.next(0);
-    this.minutes.next(0);
-    this.hours.next(0);
+    this.resetCounter();
+    this.resetTime();
   }
 
+  public resetCounter(){
+    this.counter = 0;
+  }
 
+  public startInterval(){
+    this.interval = setInterval(() => {
+      this.counter++;
+      this.h.next(Math.floor(this.counter / 3600));
+      this.min.next(Math.floor(this.counter / 60));
+      this.sec.next(this.counter % 60);
+    }, 1000);
+  }
 
+  public resetTime(){
+    this.h.next(0);
+    this.min.next(0);
+    this.sec.next(0);
+  }
+
+  public getCounter(){
+    return this.counter;
+  }
 }
